@@ -1,4 +1,14 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
+  --nums-font-size: 2rem;
+
   /* THEME 1 */
   /* bgs */
   --very-dark-desat-blue: hsl(222, 26%, 31%);
@@ -58,8 +68,56 @@
   --light-yellow: hsl(52, 100%, 62%);
   --very-dark-blue: hsl(198, 20%, 13%);
   /* also white */
+
+  --temp-color: antiquewhite;
 }
 
 body {
   font-family: "League Spartan", serif;
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+}
+
+main {
+  height: fit-content;
+}
+
+.display,
+button {
+  font-size: var(--nums-font-size);
+  line-height: 1;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-block: 1rem;
+}
+
+.display {
+  text-align: right;
+  padding: 1rem;
+  margin-block-end: 1rem;
+  background-color: var(--temp-color);
+}
+
+.buttons-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--temp-color);
+}
+
+.buttons-wrapper button:nth-child(17) {
+  grid-column: 1 / 3;
+}
+
+.buttons-wrapper button:nth-child(18) {
+  grid-column: 3 / -1;
+}
+
+button {
+  padding: 0.5rem 0.75rem;
 }
