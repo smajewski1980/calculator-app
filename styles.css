@@ -59,3 +59,7 @@
   --very-dark-blue: hsl(198, 20%, 13%);
   /* also white */
 }
+
+body {
+  font-family: "League Spartan", serif;
+}
