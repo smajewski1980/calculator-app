@@ -100,6 +100,7 @@ header {
   padding: 1rem;
   margin-block-end: 1rem;
   background-color: var(--temp-color);
+  min-height: 64px;
 }
 
 .buttons-wrapper {

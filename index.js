@@ -27,6 +27,21 @@ function handleBtnClick(e) {
   if (isNaN(btnValInt)) {
     switch (btnVal) {
       case "DEL":
+        if (!operator) {
+          operandOne.pop();
+          if (operandOne.length) {
+            updateDisplay(operandOne);
+          } else {
+            display.innerHTML = "";
+          }
+        } else {
+          operandTwo.pop();
+          if (operandTwo.length) {
+            updateDisplay(operandTwo);
+          } else {
+            display.innerHTML = "";
+          }
+        }
         console.log("DEL");
         break;
       case "+":
