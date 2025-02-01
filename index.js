@@ -12,10 +12,11 @@ const operators = {
   "/": (a, b) => a / b,
 };
 let result;
+let isFloat;
 
 function updateDisplay(toShow) {
   if (toShow) {
-    display.innerHTML = parseInt(toShow.join("")).toLocaleString();
+    display.innerHTML = parseFloat(toShow.join("")).toLocaleString();
   } else if (!toShow) {
     display.innerHTML = "";
   }
@@ -23,7 +24,7 @@ function updateDisplay(toShow) {
 
 function handleBtnClick(e) {
   const btnVal = e.target.innerHTML;
-  const btnValInt = parseInt(e.target.innerHTML);
+  const btnValInt = parseFloat(e.target.innerHTML);
   if (isNaN(btnValInt)) {
     switch (btnVal) {
       case "DEL":
@@ -46,29 +47,49 @@ function handleBtnClick(e) {
         break;
       case "+":
         operator = "+";
+        isFloat = false;
         break;
       case "-":
         operator = "-";
+        isFloat = false;
         break;
       case ".":
-        console.log(".");
+        if (!isFloat) {
+          if (!operator) {
+            operandOne.push(".");
+            isFloat = true;
+            if (operandOne.length > 1) {
+              updateDisplay(operandOne);
+            }
+          } else {
+            operandTwo.push(".");
+            isFloat = true;
+            if (operandTwo.length > 1) {
+              updateDisplay(operandTwo);
+            }
+          }
+        }
+        // console.log(".");
         break;
       case "/":
         operator = "/";
+        isFloat = false;
         break;
       case "*":
         operator = "*";
+        isFloat = false;
         break;
       case "RESET":
         operator = "";
         operandOne = [];
         operandTwo = [];
+        isFloat = false;
         updateDisplay(false);
         console.log("reset");
         break;
       case "=":
-        const numOne = parseInt(operandOne.join(""));
-        const numTwo = parseInt(operandTwo.join(""));
+        const numOne = parseFloat(operandOne.join(""));
+        const numTwo = parseFloat(operandTwo.join(""));
         console.log("=");
         result = operators[operator](numOne, numTwo);
         display.innerHTML = result;
