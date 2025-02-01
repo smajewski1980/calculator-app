@@ -1,7 +1,6 @@
 const buttons = document.querySelectorAll("button");
 const display = document.querySelector(".display");
 
-const displayValue = [];
 let operator;
 let operandOne = [];
 let operandTwo = [];
@@ -50,8 +49,14 @@ function handleBtnClick(e) {
         isFloat = false;
         break;
       case "-":
-        operator = "-";
-        isFloat = false;
+        if (!operandOne.length) {
+          operandOne.push("-");
+        } else if (operandOne.length && !operator) {
+          operator = "-";
+          isFloat = false;
+        } else if (!operandTwo.length) {
+          operandTwo.push("-");
+        }
         break;
       case ".":
         if (!isFloat) {
@@ -69,7 +74,6 @@ function handleBtnClick(e) {
             }
           }
         }
-        // console.log(".");
         break;
       case "/":
         operator = "/";
@@ -85,15 +89,12 @@ function handleBtnClick(e) {
         operandTwo = [];
         isFloat = false;
         updateDisplay(false);
-        console.log("reset");
         break;
       case "=":
         const numOne = parseFloat(operandOne.join(""));
         const numTwo = parseFloat(operandTwo.join(""));
-        console.log("=");
         result = operators[operator](numOne, numTwo);
         display.innerHTML = result;
-        console.log(operators[operator](numOne, numTwo));
         break;
       default:
         break;
@@ -102,12 +103,10 @@ function handleBtnClick(e) {
     if (!operator) {
       operandOne.push(btnValInt);
       updateDisplay(operandOne);
-      console.log("op1: " + operandOne.join(""));
     } else {
       display.innerHTML = "";
       operandTwo.push(btnValInt);
       updateDisplay(operandTwo);
-      console.log("op2: " + operandTwo.join(""));
     }
   }
 }
