@@ -21,6 +21,15 @@ function updateDisplay(toShow) {
   }
 }
 
+function calculate() {
+  const numOne = parseFloat(operandOne.join(""));
+  const numTwo = parseFloat(operandTwo.join(""));
+  result = operators[operator](numOne, numTwo);
+  display.innerHTML = result;
+  operandOne = [result];
+  operandTwo = [];
+}
+
 function handleBtnClick(e) {
   const btnVal = e.target.innerHTML;
   const btnValInt = parseFloat(e.target.innerHTML);
@@ -42,11 +51,15 @@ function handleBtnClick(e) {
             display.innerHTML = "";
           }
         }
-        console.log("DEL");
         break;
       case "+":
-        operator = "+";
-        isFloat = false;
+        if (!operator) {
+          operator = "+";
+          isFloat = false;
+        } else if (operandTwo.length) {
+          calculate();
+          operator = "+";
+        }
         break;
       case "-":
         if (!operandOne.length) {
@@ -56,6 +69,9 @@ function handleBtnClick(e) {
           isFloat = false;
         } else if (!operandTwo.length) {
           operandTwo.push("-");
+        } else if (operandTwo.length) {
+          calculate();
+          operator = "-";
         }
         break;
       case ".":
@@ -76,12 +92,22 @@ function handleBtnClick(e) {
         }
         break;
       case "/":
-        operator = "/";
-        isFloat = false;
+        if (!operator) {
+          operator = "/";
+          isFloat = false;
+        } else if (operandTwo.length) {
+          calculate();
+          operator = "/";
+        }
         break;
       case "*":
-        operator = "*";
-        isFloat = false;
+        if (!operator) {
+          operator = "*";
+          isFloat = false;
+        } else if (operandTwo.length) {
+          calculate();
+          operator = "*";
+        }
         break;
       case "RESET":
         operator = "";
@@ -91,10 +117,10 @@ function handleBtnClick(e) {
         updateDisplay(false);
         break;
       case "=":
-        const numOne = parseFloat(operandOne.join(""));
-        const numTwo = parseFloat(operandTwo.join(""));
-        result = operators[operator](numOne, numTwo);
-        display.innerHTML = result;
+        if (operator) {
+          calculate();
+          operator = "";
+        }
         break;
       default:
         break;
@@ -113,3 +139,6 @@ function handleBtnClick(e) {
 buttons.forEach((button) => {
   button.addEventListener("click", handleBtnClick);
 });
+
+// when writing a float problem after 4th digit
+// still need to test negative stuff
