@@ -25,7 +25,7 @@ function calculate() {
   const numOne = parseFloat(operandOne.join(""));
   const numTwo = parseFloat(operandTwo.join(""));
   result = operators[operator](numOne, numTwo);
-  display.innerHTML = result;
+  display.innerHTML = result.toLocaleString();
   operandOne = [result];
   operandTwo = [];
 }
