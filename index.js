@@ -1,5 +1,8 @@
 const buttons = document.querySelectorAll("button");
 const display = document.querySelector(".display");
+const themeToggle = document.querySelector(".toggle");
+
+let themeTogglePosition = 1;
 
 let operator;
 let operandOne = [];
@@ -136,9 +139,34 @@ function handleBtnClick(e) {
     }
   }
 }
+
+function handleThemeToggle() {
+  updatethemeTogglePosition();
+  themeTogglePosition === 3 ? (themeTogglePosition = 1) : themeTogglePosition++;
+}
+
+function updatethemeTogglePosition() {
+  switch (themeTogglePosition) {
+    case 1: {
+      themeToggle.style.paddingLeft = "1.25rem";
+      break;
+    }
+    case 2: {
+      themeToggle.style.paddingLeft = "2.35rem";
+      break;
+    }
+    case 3: {
+      themeToggle.style.padding = ".125rem";
+      break;
+    }
+  }
+}
+
 buttons.forEach((button) => {
   button.addEventListener("click", handleBtnClick);
 });
+
+themeToggle.addEventListener("click", handleThemeToggle);
 
 // when writing a float problem after 4th digit
 // still need to test negative stuff
