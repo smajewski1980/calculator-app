@@ -20,12 +20,19 @@ function updateDisplay(toShow) {
   if (toShow) {
     display.innerHTML = parseFloat(toShow.join("")).toLocaleString("en-US", {
       minimumFractionDigits: 0,
-      // got distracted figuring out display overflow
-      // still need to come back and find a
       maximumFractionDigits: 5,
     });
   } else if (!toShow) {
     display.innerHTML = "";
+  }
+}
+
+function decimalLength(num) {
+  const numStr = num.toString();
+  if (numStr.includes(".")) {
+    return numStr.split(".")[1].length;
+  } else {
+    return 0;
   }
 }
 
@@ -135,12 +142,19 @@ function handleBtnClick(e) {
     }
   } else {
     if (!operator) {
-      operandOne.push(btnValInt);
-      updateDisplay(operandOne);
+      if (decimalLength(operandOne) <= 9) {
+        console.log(decimalLength(operandOne));
+        operandOne.push(btnValInt);
+        updateDisplay(operandOne);
+      } else {
+        updateDisplay(operandOne);
+      }
     } else {
-      display.innerHTML = "";
-      operandTwo.push(btnValInt);
-      updateDisplay(operandTwo);
+      if (decimalLength(operandTwo) <= 9) {
+        display.innerHTML = "";
+        operandTwo.push(btnValInt);
+        updateDisplay(operandTwo);
+      }
     }
   }
 }
@@ -175,5 +189,3 @@ buttons.forEach((button) => {
 });
 
 themeToggle.addEventListener("click", handleThemeToggle);
-
-// when writing a float problem after 4th digit
