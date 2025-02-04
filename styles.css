@@ -110,6 +110,7 @@ header {
   background: grey;
   position: relative;
   padding: 0.125rem;
+  transition: padding 0.15s ease;
 }
 
 .toggle-slider {
