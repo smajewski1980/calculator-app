@@ -18,7 +18,12 @@ let isFloat;
 
 function updateDisplay(toShow) {
   if (toShow) {
-    display.innerHTML = parseFloat(toShow.join("")).toLocaleString();
+    display.innerHTML = parseFloat(toShow.join("")).toLocaleString("en-US", {
+      minimumFractionDigits: 0,
+      // got distracted figuring out display overflow
+      // still need to come back and find a
+      maximumFractionDigits: 5,
+    });
   } else if (!toShow) {
     display.innerHTML = "";
   }
@@ -172,4 +177,3 @@ buttons.forEach((button) => {
 themeToggle.addEventListener("click", handleThemeToggle);
 
 // when writing a float problem after 4th digit
-// still need to test negative stuff
