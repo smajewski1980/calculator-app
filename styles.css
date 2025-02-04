@@ -11,23 +11,23 @@
 
   /* THEME 1 */
   /* bgs */
-  --very-dark-desat-blue: hsl(222, 26%, 31%);
+  /* --very-dark-desat-blue: hsl(222, 26%, 31%);
   --very-dark-desat-blue2: hsl(223, 31%, 20%);
-  --very-dark-desat-blue3: hsl(224, 36%, 15%);
+  --very-dark-desat-blue3: hsl(224, 36%, 15%); */
 
   /* keys */
-  --desaturated-dark-blue: hsl(225, 21%, 49%);
-  --desaturated-dark-blue: hsl(224, 28%, 35%);
+  /* --desaturated-dark-blue: hsl(225, 21%, 49%);
+  --desaturated-dark-blue: hsl(224, 28%, 35%); */
 
-  --red: hsl(6, 63%, 50%);
+  /* --red: hsl(6, 63%, 50%);
   --dark-red: hsl(6, 70%, 34%);
 
   --light-grayish-orange: hsl(30, 25%, 89%);
-  --grayish-orange: hsl(28, 16%, 65%);
+  --grayish-orange: hsl(28, 16%, 65%); */
 
   /* text */
-  --very-dark-grayish-blue: hsl(221, 14%, 31%);
-  --white: hsl(0, 0%, 100%);
+  /* --very-dark-grayish-blue: hsl(221, 14%, 31%);
+  --white: hsl(0, 0%, 100%); */
 
   /* THEME 2 */
   /* bgs */
@@ -84,17 +84,40 @@
   --bg-key-del-res-shd: hsl(224, 28%, 35%);
   --text-main: hsl(221, 14%, 31%);
   --text-alt: hsl(0, 0%, 100%);
-  color: black;
+  --text-alt-eq: var(--text-alt);
+  --text-alt-body: hsl(0, 0%, 100%);
 }
 
 [data-theme="dark"] {
-  background-color: black;
-  color: white;
+  --bg-main: hsl(0, 0%, 90%);
+  --bg-tog-keyp: hsl(0, 5%, 81%);
+  --bg-screen: hsl(0, 0%, 93%);
+  --bg-key-main: hsl(45, 7%, 89%);
+  --bg-key-main-shd: hsl(35, 11%, 61%);
+  --bg-key-tog-red: hsl(25, 98%, 40%);
+  --bg-key-tog-red-shd: hsl(25, 99%, 27%);
+  --bg-key-del-res: hsl(185, 42%, 37%);
+  --bg-key-del-res-shd: hsl(185, 58%, 25%);
+  --text-main: hsl(60, 10%, 19%);
+  --text-alt: hsl(0, 0%, 100%);
+  --text-alt-eq: var(--text-alt);
+  --text-alt-body: var(--text-main);
 }
 
 [data-theme="custom"] {
-  background-color: pink;
-  color: rebeccapurple;
+  --bg-main: hsl(268, 75%, 9%);
+  --bg-tog-keyp: hsl(268, 71%, 12%);
+  --bg-screen: var(--bg-tog-keyp);
+  --bg-key-main: hsl(268, 47%, 21%);
+  --bg-key-main-shd: hsl(290, 70%, 36%);
+  --bg-key-tog-red: hsl(176, 100%, 44%);
+  --bg-key-tog-red-shd: hsl(177, 92%, 70%);
+  --bg-key-del-res: hsl(281, 89%, 26%);
+  --bg-key-del-res-shd: hsl(285, 91%, 52%);
+  --text-main: hsl(52, 100%, 62%);
+  --text-alt: hsl(0, 0%, 100%);
+  --text-alt-eq: var(--bg-main);
+  --text-alt-body: var(--text-main);
 }
 
 body {
@@ -103,7 +126,7 @@ body {
   place-content: center;
   min-height: 100vh;
   background: var(--bg-main);
-  color: var(--text-alt);
+  color: var(--text-alt-body);
 }
 
 main {
@@ -202,5 +225,5 @@ button {
   grid-column: 3 / -1;
   background: var(--bg-key-tog-red);
   box-shadow: 0px 2px 0px var(--bg-key-tog-red-shd);
-  color: var(--text-alt);
+  color: var(--text-alt-eq);
 }
