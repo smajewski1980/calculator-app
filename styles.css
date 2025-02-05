@@ -194,5 +194,3 @@ button {
 .buttons-wrapper button:nth-child(18):focus-visible {
   background: var(--bg-key-tog-red-hov);
 }
-
-/* STILL NEED TO DO ACTIVE STATES */

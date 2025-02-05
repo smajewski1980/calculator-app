@@ -51,6 +51,8 @@ function handleBtnClick(e) {
   const btnValInt = parseFloat(e.target.innerHTML);
   if (isNaN(btnValInt)) {
     switch (btnVal) {
+      default:
+        break;
       case "DEL":
         if (!operator) {
           operandOne.pop();
@@ -138,8 +140,6 @@ function handleBtnClick(e) {
           operator = "";
         }
         break;
-      default:
-        break;
     }
   } else {
     if (!operator) {
@@ -192,3 +192,7 @@ buttons.forEach((button) => {
 themeToggle.addEventListener("click", handleThemeToggle);
 
 // would like to make keyboard work for this too
+// would like to add small display to show the 1st operand and the current operator
+
+// this was my first go at it
+// I watched a couple tutorials, and I saw a few different approaches than the one I took. I plan to revisit this and redo the logic
