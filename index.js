@@ -37,6 +37,7 @@ function decimalLength(num) {
 }
 
 function calculate() {
+  debugger;
   const numOne = parseFloat(operandOne.join(""));
   const numTwo = parseFloat(operandTwo.join(""));
   result = operators[operator](numOne, numTwo);
@@ -189,3 +190,5 @@ buttons.forEach((button) => {
 });
 
 themeToggle.addEventListener("click", handleThemeToggle);
+
+// would like to make keyboard work for this too
