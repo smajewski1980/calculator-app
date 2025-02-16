@@ -25,6 +25,7 @@
       .attribution {
         font-size: 11px;
         text-align: center;
+        margin-top: 1rem;
       }
       .attribution a {
         color: hsl(228, 45%, 44%);
@@ -43,35 +44,38 @@
         </div>
       </header>
       <div class="display-wrapper">
-        <p class="display"></p>
+        <p data-previous-operand class="previous-operand"></p>
+        <p data-current-operand class="current-operand"></p>
       </div>
       <div class="buttons-wrapper">
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button>DEL</button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>+</button>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>-</button>
-        <button>&#46;</button>
-        <button>0</button>
-        <button>/</button>
-        <button>&lowast;</button>
-        <button>RESET</button>
-        <button>=</button>
+        <button data-number>7</button>
+        <button data-number>8</button>
+        <button data-number>9</button>
+        <button data-delete>DEL</button>
+        <button data-number>4</button>
+        <button data-number>5</button>
+        <button data-number>6</button>
+        <button data-operation>+</button>
+        <button data-number>1</button>
+        <button data-number>2</button>
+        <button data-number>3</button>
+        <button data-operation>-</button>
+        <button data-number>&#46;</button>
+        <button data-number>0</button>
+        <button data-operation>/</button>
+        <button class="btn-multiply" data-operation>*</button>
+        <button data-reset>RESET</button>
+        <button data-equals>=</button>
       </div>
     </main>
-    <!-- <div class="attribution">
+    <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
-    </div> -->
-    <script src="index.js"></script>
+      >. &nbsp;&nbsp;Coded by Steve Majewski.
+    </div>
+    <!-- <script src="index.js"></script> -->
+    <script src="theme.js"></script>
+    <script src="index2.js"></script>
   </body>
 </html>

@@ -73,17 +73,6 @@ body {
   color: var(--text-alt-body);
 }
 
-main {
-  height: fit-content;
-}
-
-.display,
-button {
-  font: inherit;
-  font-size: var(--nums-font-size);
-  line-height: 1;
-}
-
 header {
   display: flex;
   justify-content: space-between;
@@ -131,12 +120,19 @@ header {
   font-family: monospace;
 }
 
+.current-operand,
+button {
+  font: inherit;
+  font-size: var(--nums-font-size);
+  line-height: 1;
+}
+
 .display-wrapper {
   overflow: hidden;
 }
 
-.display {
-  direction: rtl;
+.current-operand {
+  text-align: right;
   padding: 1rem;
   margin-block-end: 1rem;
   background-color: var(--bg-screen);
@@ -193,4 +189,22 @@ button {
 .buttons-wrapper button:nth-child(18):hover,
 .buttons-wrapper button:nth-child(18):focus-visible {
   background: var(--bg-key-tog-red-hov);
+}
+
+/* i didnt like the way the string * was so high in the button, couldn't add padding
+because it made the button taller. used &lowast; but couldn't get js to use for switch,
+so i made the regular * transparent and added another with the pseudo element to be
+moved where I wanted it */
+
+.btn-multiply {
+  color: transparent;
+  position: relative;
+}
+
+.btn-multiply::after {
+  content: "*";
+  position: absolute;
+  color: var(--text-main);
+  top: 40%;
+  left: 40%;
 }
