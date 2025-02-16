@@ -191,8 +191,7 @@ button {
   background: var(--bg-key-tog-red-hov);
 }
 
-/* i didnt like the way the string * was so high in the button, couldn't add padding
-because it made the button taller. used &lowast; but couldn't get js to use for switch,
+/* i didnt like the way the * was so high in the button. tried &lowast; but couldn't get js to use it for switch,
 so i made the regular * transparent and added another with the pseudo element to be
 moved where I wanted it */
 
